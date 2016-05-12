@@ -10,7 +10,7 @@ exports.ldapData = function (data) {
     data.password = app.config.credentials.password;
 
     return data;
-}
+};
 
 exports.user = HumanModel.define({
     initialize: function (attrs) {

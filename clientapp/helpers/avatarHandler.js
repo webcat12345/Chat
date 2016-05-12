@@ -32,7 +32,7 @@ module.exports.fetch = function (jid, id, type, source, cb) {
                         return cb(getGravatar(jid));
                     }
 
-                    type = resp.vCardTemp.photo.type || type;
+                    type = resp.vCardTemp.photo ? resp.vCardTemp.photo.type : type;
 
                     var data = resp.vCardTemp.photo.data;
                     var uri = 'data:' + type + ';base64,' + data;

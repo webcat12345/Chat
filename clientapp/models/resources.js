@@ -43,7 +43,7 @@ module.exports = BaseCollection.extend({
         return 1;
     },
     search : function (letters, removeMe, addAll) {
-        if(letters == "" && !removeMe) return this;
+        if(letters === "" && !removeMe) return this;
 
         var collection = new module.exports(this.models);
         if (addAll)

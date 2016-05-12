@@ -3,6 +3,8 @@ var https = require('https');
 var Moonboots = require('moonboots-express');
 var express = require('express');
 var helmet = require('helmet');
+var xssFilter = require('x-xss-protection');
+var frameguard = require('frameguard');
 var config = require('getconfig');
 var templatizer = require('templatizer');
 var async = require('async');
@@ -22,10 +24,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
 app.use(serveStatic(__dirname + '/public'));
 if (!config.isDev) {
-    app.use(helmet.xframe());
+    app.use(frameguard());
 }
-app.use(helmet.iexss());
-app.use(helmet.contentTypeOptions());
+app.use(xssFilter({ setOnOldIE: true }));
+app.use(helmet.noSniff());
 
 var webappManifest = fs.readFileSync('./public/x-manifest.webapp');
 
@@ -181,7 +183,7 @@ app.post('/ldap/users', function (req, res) {
               attrsOnly: true
             };
             client.search(config.ldap.base, opts, function(err, data) {
-                var users = new Array();
+                var users = [];
                 if (!err) {
                     data.on('searchEntry', function(entry) {
                       var user = {};

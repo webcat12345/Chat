@@ -109,7 +109,7 @@ module.exports = HumanView.extend({
                 persistent: true,
                 submit:function (e, v, m, f) {
                     if (v) {
-                        if (f.newPassword1 != '') {
+                        if (f.newPassword1 !== '') {
                             e.preventDefault();
                             $.prompt.goToState('state1');
                             return false;

@@ -1,8 +1,8 @@
-- var messageClasses = message.classList
+- var messageClasses = ['message', 'message.classList']
 if firstEl
-  - messageClasses += ' first'
+  - messageClasses.push('first')
 
-.message(id='chat'+message.cid, class=messageClasses)
+div(id='chat'+message.cid, class=messageClasses)
   .date(title=messageDate.format('{Dow}, {MM}/{dd}/{yyyy} - {h}:{mm} {Tt}')) #{messageDate.format('{h}:{mm} {tt}')}
   p.body !{message.processedBody}
   - var urls = message.urls

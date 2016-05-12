@@ -31,16 +31,16 @@ exports.head = function anonymous(locals) {
 exports.includes.bareMessage = function anonymous(locals) {
     var buf = [];
     with (locals || {}) {
-        var messageClasses = message.classList;
+        var messageClasses = [ "message", "message.classList" ];
         if (firstEl) {
-            messageClasses += " first";
+            messageClasses.push("first");
         }
         buf.push("<div" + jade.attrs({
             id: "chat" + message.cid,
-            "class": "message" + " " + messageClasses
+            "class": messageClasses
         }, {
-            "class": true,
-            id: true
+            id: true,
+            "class": true
         }) + "><div" + jade.attrs({
             title: messageDate.format("{Dow}, {MM}/{dd}/{yyyy} - {h}:{mm} {Tt}"),
             "class": "date"
@@ -247,16 +247,16 @@ exports.includes.messageGroup = function anonymous(locals) {
 exports.includes.mucBareMessage = function anonymous(locals) {
     var buf = [];
     with (locals || {}) {
-        var messageClasses = message.classList;
+        var messageClasses = [ "message", "message.classList" ];
         if (firstEl) {
-            messageClasses += " first";
+            messageClasses.push("first");
         }
         buf.push("<div" + jade.attrs({
             id: "chat" + message.cid,
-            "class": "message" + " " + messageClasses
+            "class": messageClasses
         }, {
-            "class": true,
-            id: true
+            id: true,
+            "class": true
         }) + "><div" + jade.attrs({
             title: messageDate.format("{Dow}, {MM}/{dd}/{yyyy} - {h}:{mm} {Tt}"),
             "class": "date"
@@ -352,16 +352,16 @@ exports.includes.mucWrappedMessage = function anonymous(locals) {
         }, {
             title: true
         }) + ">" + jade.escape((jade.interp = messageDate.format("{h}:{mm} {tt}")) == null ? "" : jade.interp) + "</div></div>");
-        var messageClasses = message.classList;
+        var messageClasses = [ "message", "message.classList" ];
         if (firstEl) {
-            messageClasses += " first";
+            messageClasses.push("first");
         }
         buf.push("<div" + jade.attrs({
             id: "chat" + message.cid,
-            "class": "message" + " " + messageClasses
+            "class": messageClasses
         }, {
-            "class": true,
-            id: true
+            id: true,
+            "class": true
         }) + "><div" + jade.attrs({
             title: messageDate.format("{Dow}, {MM}/{dd}/{yyyy} - {h}:{mm} {Tt}"),
             "class": "date"
@@ -439,16 +439,16 @@ exports.includes.wrappedMessage = function anonymous(locals) {
         }, {
             title: true
         }) + ">" + jade.escape((jade.interp = messageDate.format("{h}:{mm} {tt}")) == null ? "" : jade.interp) + "</div></div>");
-        var messageClasses = message.classList;
+        var messageClasses = [ "message", "message.classList" ];
         if (firstEl) {
-            messageClasses += " first";
+            messageClasses.push("first");
         }
         buf.push("<div" + jade.attrs({
             id: "chat" + message.cid,
-            "class": "message" + " " + messageClasses
+            "class": messageClasses
         }, {
-            "class": true,
-            id: true
+            id: true,
+            "class": true
         }) + "><div" + jade.attrs({
             title: messageDate.format("{Dow}, {MM}/{dd}/{yyyy} - {h}:{mm} {Tt}"),
             "class": "date"
